@@ -17,25 +17,35 @@ public class Code4Life {
 	
 	
 	// 1. Ask the user how many hours they spent coding this week.
-
+	public static void main(String[] args) {
+	
+	String hoursCoding = JOptionPane.showInputDialog("How many hours have you spent coding this week?");
+	int HoursCoding = Integer.parseInt(hoursCoding);
 	// 2. If it is less than or equal to 2, tell them to stop watching YouTube and
 	// write code instead.
-
+	if (HoursCoding <= 2) {
+		JOptionPane.showMessageDialog(null, "Stop watching YouTube and write code!!");
+	}
 	// 3. If it is greater than or equal to 3 AND less than or equal to 5, tell them
 	// they're a Code Ninja
-
+	else if (HoursCoding <= 5 && HoursCoding >= 3) {
+		JOptionPane.showMessageDialog(null, "You're a Code Ninja!!");
+	}
 	// 4. If it is more than 5, call the playBatmanTheme  method, then 
 	//    call the displayBatman method.
+	else if (HoursCoding > 5) {
+		playBatmanTheme();
+		displayBatman();
+	}
 
-
-
+	}
 	
 	private static void playBatmanTheme() {
 	// NOTE: Download batman.wav from league-sounds on GitHub: https://github.com/jointheleague/league-sounds
 	//	     Then put batman.wav into the "_2_code_4_life" project
 	//       If you want to play a different audio, change the file name in the code below.
 		if (canPlaySounds) {		
-			File sound = new File("src/_04_practice/_2_code_4_life/batman.wav");
+			File sound = new File("batman.mp3");
 			if (sound.exists()) {
 				new Thread(() -> {
 				try {
